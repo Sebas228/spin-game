@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+  font-family: 'Roboto', sans-serif;
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --danger: #FF4040;
+  --success: #27C327;
+  --white: #EFEFEF;
+  --white-darker: #CFCFCF;
+  --dark: #202020;
+  --dark-lighten: #808080;
+
+  --rounded: 0.5em;
+  --focus-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  --xl-shadow: rgb(0 0 0 / 20%) 0px 11px 15px -7px, rgb(0 0 0 / 14%) 0px 24px 38px 3px, rgb(0 0 0 / 12%) 0px 9px 46px 8px;
+}
+
+[data-theme='light'] {
+  --background: #EFEFEF;
+  --primary: #1A93BC;
+  --secondary: #BC1A93;
+  --accent: #93BC1A;
+
+  --primary-hover: #146E8D;
+  --primary-hover-outline: rgba(20, 110, 141, 0.3);
+  --secondary-hover: #8D146E;
+  --secondary-hover-outline: rgba(141, 20, 110, 0.3);
+  --accent-hover: #6E8D14;
+  --accent-hover-outline: rgba(110, 141, 20, 0.3);
+
+  --text-primary: #202020;
+  --text-secondary: #808080;
+  --text-bg-primary: #EFEFEF;
+  --text-bg-secondary: #CFCFCF;
+
+  --border-color: rgba(0, 0, 0, 0.12);
+  --border-color-lighten: rgba(0, 0, 0, 0.05);
+  --sm-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.09);
+
+  --disabled-background: #cccccc;
+  --disabled-color: #666666;
+}
+
+[data-theme='dark'] {
+  --background: #222222;
+  --primary: #37A1C4;
+  --secondary: #C437A1;
+  --accent: #A1C437;
+
+  --primary-hover: #297993;
+  --primary-hover-outline: rgba(41, 121, 147, 0.3);
+  --secondary-hover: #932979;
+  --secondary-hover-outline: rgba(147, 41, 121, 0.3);
+  --accent-hover: #799329;
+  --accent-hover-outline: rgba(121, 147, 41, 0.3);
+
+  --text-primary: #EFEFEF;
+  --text-secondary: #CFCFCF;
+  --text-bg-primary: #202020;
+  --text-bg-secondary: #808080;
+
+  --border-color: rgba(255, 255, 255, 0.12);
+  --border-color-lighten: rgba(255, 255, 255, 0.05);
+  --sm-shadow: 0px 1px 10px 0px rgba(255, 255, 255, 0.09);
+
+  --disabled-background: rgba(255, 255, 255, 0.12);
+  --disabled-color: rgba(255, 255, 255, 0.3);
+}
+
+/* TODO: realizar los colores para danger - warning e info */
+
+*, 
+*::after, 
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Dialog Style */
+.dialog {
+  overflow-y: auto;
+  z-index: 10;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+}
+
+.dialog .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  min-height: 100vh;
+  padding: 0 calc(var(--rounded) * 3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.dialog .title {
+  color: var(--text-primary);
+  margin-bottom: var(--rounded);
+}
+
+.body-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.dialog .body {
+  vertical-align: middle;
+  background-color: var(--background);
+  border-radius: var(--rounded);
+  box-shadow: var(--xl-shadow);
+  padding: calc(var(--rounded) * 3);
+  width: 100%;
+}
+
+.dialog .body.sm {
+  min-width: auto;
+  max-width: 22rem;
+}
+
+.dialog .body.md {
+  min-width: auto;
+  max-width: 28rem;
+}
+
+/* Transitions - ref: https://tailwindcss.com/docs/installation */
+.transition {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transform {
+  transform: translateX(0) translateY(0) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1);
+}
+
+.duration-75 {
+  transition-duration: 75ms;
+}
+
+.duration-100 {
+  transition-duration: 100ms;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.scale-95 {
+  transform: scale(.95);
+}
+
+.scale-100 {
+  transform: scale(1);
+}
+
+.ease-out {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
